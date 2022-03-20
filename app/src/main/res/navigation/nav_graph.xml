@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph.xml"
+    app:startDestination="@id/weatherFragment">
+
+    <fragment
+        android:id="@+id/weatherFragment"
+        android:name="kg.geektech.weatherapi.ui.weatherFragment.WeatherFragment"
+        android:label="fragment_weather"
+        tools:layout="@layout/fragment_weather">
+        <action
+            android:id="@+id/action_weatherFragment_to_findFragment"
+            app:destination="@id/findFragment" />
+        <argument android:name="latitude"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="40.7143"
+            />
+        <argument android:name="longitude"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="-74.006"
+            />
+    </fragment>
+
+    <fragment
+        android:id="@+id/findFragment"
+        android:name="kg.geektech.weatherapi.ui.findFragment.FindFragment"
+        android:label="fragment_find"
+        tools:layout="@layout/fragment_find">
+        <action
+            android:id="@+id/action_findFragment_to_weatherFragment"
+            app:destination="@id/weatherFragment">
+
+            <argument android:name="latitude"
+                app:argType="string"
+                app:nullable="true"
+                />
+            <argument android:name="longitude"
+                app:argType="string"
+                app:nullable="true"
+                />
+
+        </action>
+    </fragment>
+
+
+</navigation>
